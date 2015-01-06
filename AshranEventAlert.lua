@@ -3,13 +3,13 @@ function ashran_event_alert_eventHandler(self, event, ...)
 		local ashranAreaID = 978;
 		SetMapToCurrentZone();
 		local areaid = GetCurrentMapAreaID();
-		if (areaid ~= ashranAreaID) then
+		if (areaid == ashranAreaID) then
 			print("Du bist jetzt in Ashran");
 			self:RegisterEvent("CHAT_MSG_BG_SYSTEM_NEUTRAL");
 			self:RegisterEvent("CHAT_MSG_BG_SYSTEM_ALLIANCE");
 			self:RegisterEvent("CHAT_MSG_BG_SYSTEM_HORDE");
 		end
-		if (areaid == ashranAreaID) then
+		if (areaid ~= ashranAreaID) then
 			self:UnregisterEvent("CHAT_MSG_BG_SYSTEM_NEUTRAL");
 			self:UnregisterEvent("CHAT_MSG_BG_ALLIANCE");
 			self:UnregisterEvent("CHAT_MSG_BG_HORDE");

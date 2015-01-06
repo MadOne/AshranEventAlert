@@ -2,8 +2,12 @@
          <Script File="AshranEventAlert.lua"/>
          <Frame name="AshranEventAlertFrame">
                 <Scripts>
-						<OnLoad function="ashran_event_alert_eventHandler"/>
-						<OnEvent function="ashran_event_alert_eventHandler"/>
+						<OnLoad>
+						self:RegisterEvent("ZONE_CHANGED_NEW_AREA");
+						</OnLoad>
+						<OnEvent>
+							ashran_event_alert_eventHandler(self, event, ...)
+						</OnEvent>
                 </Scripts>
          </Frame>
  </Ui>
