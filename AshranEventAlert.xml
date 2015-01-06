@@ -13,17 +13,21 @@
 								if (areaid == ashranAreaID) then
 									print("Du bist jetzt in Ashran");
 									self:RegisterEvent("CHAT_MSG_BG_SYSTEM_NEUTRAL");
+									self:RegisterEvent("CHAT_MSG_BG_SYSTEM_ALLIANCE");
+									self:RegisterEvent("CHAT_MSG_BG_SYSTEM_HORDE");
 								end
 								if (areaid ~= ashranAreaID) then
 									self:UnregisterEvent("CHAT_MSG_BG_SYSTEM_NEUTRAL");
+									self:UnregisterEvent("CHAT_MSG_BG_ALLIANCE");
+									self:UnregisterEvent("CHAT_MSG_BG_HORDE");
 								end
 							end		
 							
 							if event == "CHAT_MSG_BG_SYSTEM_NEUTRAL" then
-                                print("Message im BG_SYSTEM_NEUTRAL")
+                                print("Message in CHAT_MSG_BG_SYSTEM_NEUTRAL")
 								local arg1
 								arg1 = arg1:lower()
-								print(message);
+								print(arg1);
 								if (arg1:find("ereignis: aufgeladenes erz") ) then
 									SlashCmdList["DEADLYBOSSMODS"]("timer 180 aufgeladenes erz");
 								end
@@ -38,6 +42,12 @@
 								end
 							end
 							
+							if event == "CHAT_MSG_BG_ALLIANCE" then
+								print ("Message in BG_SYSTEM_ALLIANCE");
+							end
+							if event == "CHAT_MSG_BG_HORDE" then
+								print ("Message in CHAT_MSG_BG_HORDE");
+							end
 						</OnEvent>
                 </Scripts>
          </Frame>
