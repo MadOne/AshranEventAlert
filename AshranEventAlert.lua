@@ -19,14 +19,14 @@ function ashran_event_alert_eventHandler(self, event, ...)
 		print ("CHAT_MSG_BG_SYSTEM_NEUTRAL fired");
 		local message = ...
 		message = message:lower()
-		if (message:find("ereignis: aufgeladenes") ) then 
+		if (message:find("geschmolzenen") ) then 
 			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Erz")
 		elseif (message:find("ereignis: auferstandene") ) then
 			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Geister")
 		elseif (message:find("ereignis: stadionrennen") ) then
 			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Rennen")
-		elseif (message:find("platzhalter") ) then
-			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Platzhalter")			
+		elseif (message:find("aschehämmer") ) then
+			SlashCmdList["DEADLYBOSSMODS"]("timer 180 aschehämmer")			
 		end 
 	end
 	if event == "CHAT_MSG_BG_SYSTEM_ALLIANCE" then
@@ -34,23 +34,16 @@ function ashran_event_alert_eventHandler(self, event, ...)
 		message = message:lower()
 		if (message:find("ereignis: aufgeladenes") ) then 
 			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Erz")
+			SlashCmdList["DEADLYBOSSMODS"]("pull 10")
 		elseif (message:find("ereignis: auferstandene") ) then
 			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Geister")
+			SlashCmdList["DEADLYBOSSMODS"]("pull 10")
 		elseif (message:find("ereignis: stadionrennen") ) then
 			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Rennen")
+			SlashCmdList["DEADLYBOSSMODS"]("pull 10")
 		elseif (message:find("platzhalter") ) then
-			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Platzhalter")			
+			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Platzhalter")
+			SlashCmdList["DEADLYBOSSMODS"]("pull 10")
 		end 
 	end
-		local message = ...
-		message = message:lower()
-		if (message:find("ereignis: aufgeladenes") ) then 
-			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Erz")
-		elseif (message:find("ereignis: auferstandene") ) then
-			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Geister")
-		elseif (message:find("ereignis: stadionrennen") ) then
-			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Rennen")
-		elseif (message:find("platzhalter") ) then
-			SlashCmdList["DEADLYBOSSMODS"]("timer 180 Platzhalter")			
-		end 
 end
