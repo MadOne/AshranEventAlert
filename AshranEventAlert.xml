@@ -1,0 +1,45 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+         <Script File="AshranEventAlert.lua"/>
+         <Frame name="AshranEventAlertFrame">
+                <Scripts>
+						<OnLoad> 
+							self:RegisterEvent("ZONE_CHANGED_NEW_AREA");
+						</OnLoad>
+						<OnEvent>
+							if event == "ZONE_CHANGED_NEW_AREA" then
+								local ashranAreaID = 978;
+								SetMapToCurrentZone();
+								local areaid = GetCurrentMapAreaID();
+								if (areaid == ashranAreaID) then
+									print("Du bist jetzt in Ashran");
+									self:RegisterEvent("CHAT_MSG_BG_SYSTEM_NEUTRAL");
+								end
+								if (areaid ~= ashranAreaID) then
+									self:UnregisterEvent("CHAT_MSG_BG_SYSTEM_NEUTRAL");
+								end
+							end		
+							
+							if event == "CHAT_MSG_BG_SYSTEM_NEUTRAL" then
+                                print("Message im BG_SYSTEM_NEUTRAL")
+								local arg1
+								arg1 = arg1:lower()
+								print(message);
+								if (arg1:find("ereignis: aufgeladenes erz") ) then
+									SlashCmdList["DEADLYBOSSMODS"]("timer 180 aufgeladenes erz");
+								end
+								if (arg1:find("ereignis: ogerfeuer") ) then
+									SlashCmdList["DEADLYBOSSMODS"]("timer 180 ogerfeuer");
+								end
+								if (arg1:find("ereignis: auferstandene geister") ) then
+									SlashCmdList["DEADLYBOSSMODS"]("timer 180 auferstandene geister");
+								end
+								if (arg1:find("ereignis: stadionrennen") ) then
+									SlashCmdList["DEADLYBOSSMODS"]("timer 180 stadionrennen");
+								end
+							end
+							
+						</OnEvent>
+                </Scripts>
+         </Frame>
+ </Ui>
+ 

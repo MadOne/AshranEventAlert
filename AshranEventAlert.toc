@@ -1,0 +1,7 @@
+## Interface: 60000
+## Title: Hello World!
+## Notes: My first AddOn
+## Version: 1.0.0
+
+AshranEventAlert.lua
+AshranEventAlert.xml
